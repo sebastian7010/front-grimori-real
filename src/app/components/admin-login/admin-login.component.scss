@@ -1,0 +1,88 @@
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.admin-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 120px);
+    /* ajusta según altura de navbar+footer */
+    padding: 2rem;
+    background-color: #f0f2f5;
+    form {
+        background: #fff;
+        padding: 2rem 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 400px;
+        animation: fadeInUp 0.5s ease-out;
+        h2 {
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-size: 1.75rem;
+            color: #222;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 1rem;
+            label {
+                margin-bottom: 0.5rem;
+                font-weight: 600;
+                color: #333;
+                transition: color 0.3s ease;
+            }
+            input {
+                padding: 0.75rem 1rem;
+                font-size: 1rem;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                transition: border-color 0.3s ease, box-shadow 0.3s ease;
+                &:focus {
+                    outline: none;
+                    border-color: #007bff;
+                    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+                }
+            }
+        }
+        button[type="submit"] {
+            width: 100%;
+            padding: 0.75rem;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+            &:hover {
+                background-color: #0056b3;
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            }
+        }
+        .error {
+            margin-top: 0.5rem;
+            color: #d9534f;
+            text-align: center;
+            font-size: 0.9rem;
+            animation: fadeInUp 0.3s ease-out;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .admin-login form {
+        padding: 1.5rem;
+    }
+}

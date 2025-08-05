@@ -1,0 +1,114 @@
+.admin-dashboard {
+    max-width: 700px;
+    margin: 2rem auto;
+    background: #fff;
+    padding: 2rem 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    h1 {
+        margin-bottom: 2rem;
+        font-size: 2rem;
+        text-align: center;
+    }
+    .article-form {
+        display: flex;
+        flex-direction: column;
+        gap: 1.3rem;
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            label {
+                font-weight: 600;
+                margin-bottom: 0.4rem;
+            }
+            input,
+            ngx-editor {
+                padding: 0.7rem;
+                font-size: 1rem;
+                border-radius: 4px;
+                border: 1px solid #ccc;
+                transition: border 0.2s;
+                background: #fff;
+            }
+            input[type="file"] {
+                padding: 0.3rem 0;
+                border: none;
+            }
+            .image-preview {
+                margin-top: 0.7rem;
+                max-width: 120px;
+                max-height: 120px;
+                border-radius: 6px;
+                border: 1px solid #e0e0e0;
+                object-fit: cover;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            }
+        }
+        button[type="submit"] {
+            margin-top: 1.2rem;
+            padding: 0.7rem;
+            font-size: 1.1rem;
+            background: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.2s;
+            &:hover {
+                background: #0056b3;
+            }
+        }
+    }
+    .articles-list-admin {
+        margin-top: 3rem;
+        h2 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        .admin-article-card {
+            border: 1px solid #e2e2e2;
+            border-radius: 7px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            background: #f9f9f9;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            img {
+                max-width: 80px;
+                max-height: 80px;
+                border-radius: 5px;
+            }
+            h3 {
+                margin: 0 0 0.3rem 0;
+            }
+            small {
+                color: #555;
+            }
+            div[innerHTML] {
+                margin-top: 0.3rem;
+                font-size: 0.97rem;
+            }
+        }
+    }
+}
+
+
+/* Estilo específico para ngx-editor */
+
+ngx-editor {
+    background: #fff;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    min-height: 200px;
+    margin-bottom: 1rem;
+    .ngx-editor-toolbar {
+        border-radius: 8px 8px 0 0;
+    }
+    .ngx-editor-textarea {
+        border-radius: 0 0 8px 8px;
+        min-height: 120px;
+    }
+}

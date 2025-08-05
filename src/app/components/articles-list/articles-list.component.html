@@ -1,0 +1,32 @@
+<div class="articles-list">
+    <!-- Controles: buscador + categorías desplegable -->
+    <div class="articles-list__controls">
+        <input type="text" placeholder="Buscar artículos..." [(ngModel)]="searchTerm" (ngModelChange)="onSearchChange()" />
+
+        <div class="dropdown">
+            <button class="dropdown__toggle" (click)="toggleCategories()">
+          Categorías
+          <span [class.open]="showCategoriesDropdown">▾</span>
+        </button>
+            <ul class="dropdown__menu" *ngIf="showCategoriesDropdown">
+                <li *ngFor="let cat of categories" [class.active]="selectedCategory === cat" (click)="onCategorySelect(cat)">
+                    {{ cat }}
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Cards dinámicas -->
+    <div class="articles-list__grid">
+        <div class="article-card" *ngFor="let art of filteredArticles">
+            <img [src]="art.imageUrl" alt="{{ art.title }}" />
+            <div class="article-card__body">
+                <h2>{{ art.title }}</h2>
+                <p>{{ art.excerpt }}</p>
+            </div>
+        </div>
+        <div *ngIf="filteredArticles.length === 0" class="no-results">
+            No se encontraron artículos.
+        </div>
+    </div>
+</div>

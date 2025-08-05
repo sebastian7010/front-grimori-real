@@ -1,0 +1,34 @@
+<footer class="footer">
+    <div class="footer__container">
+        <!-- Enlaces rápidos -->
+        <nav class="footer__nav">
+            <a routerLink="/" class="footer__link">Inicio</a>
+            <a routerLink="/categorias" class="footer__link">Categorías</a>
+            <a routerLink="/privacy" class="footer__link">Política de privacidad</a>
+            <a routerLink="/terms" class="footer__link">Términos de uso</a>
+            <a routerLink="/admin" class="footer__link">Admin</a>
+
+            <!-- Aquí conservamos el correo dentro de href, no en texto plano -->
+            <a href="mailto:dr.sebastian@grimorimed.com" class="footer__link">
+          Email: dr.sebastian&#64;grimorimed.com
+        </a>
+            <a routerLink="/contacto" class="footer__link">Contacto</a>
+        </nav>
+
+        <!-- Disclaimer -->
+        <div class="footer__disclaimer">
+            <p>
+                “Este sitio ofrece contenido de carácter informativo. Consulte siempre a un profesional de la salud. Todo lo que está escrito debe ser tomado con cautela ya que no ha sido escrito por un doctor sino por un estudiante de medicina con fines de estudio.”
+            </p>
+        </div>
+
+        <!-- Volver arriba -->
+        <button class="footer__back-to-top" (click)="scrollTop()">
+        ↑ Volver arriba
+      </button>
+    </div>
+
+    <div class="footer__copyright">
+        &copy; 2025 GrimoriMed. Todos los derechos reservados.
+    </div>
+</footer>

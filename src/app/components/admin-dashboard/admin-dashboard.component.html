@@ -1,0 +1,39 @@
+<div class="admin-dashboard">
+    <h1>Crear nuevo artículo</h1>
+    <form (ngSubmit)="addArticle()" #articleForm="ngForm" class="article-form">
+        <div class="form-group">
+            <label for="title">Título</label>
+            <input id="title" name="title" [(ngModel)]="title" required />
+        </div>
+        <div class="form-group">
+            <label for="category">Categoría</label>
+            <input id="category" name="category" [(ngModel)]="category" required />
+        </div>
+        <div class="form-group">
+            <label for="imageUrl">Imagen (URL o arrastra aquí)</label>
+            <input id="imageUrl" name="imageUrl" [(ngModel)]="imageUrl" />
+            <input type="file" (change)="onImageChange($event)" />
+            <img *ngIf="previewImageUrl" [src]="previewImageUrl" alt="Vista previa" class="image-preview" />
+        </div>
+        <div class="form-group">
+            <label for="content">Contenido</label>
+            <ngx-editor [editor]="editor" [(ngModel)]="content" name="content" id="content" placeholder="Escribe aquí o pega desde Word tu artículo..." required></ngx-editor>
+        </div>
+        <button type="submit">Guardar artículo</button>
+    </form>
+
+    <div class="articles-list-admin">
+        <h2>Artículos guardados</h2>
+        <div *ngFor="let art of articles" class="admin-article-card">
+            <img *ngIf="art.imageUrl" [src]="art.imageUrl" alt="Imagen" />
+            <div>
+                <h3>{{ art.title }}</h3>
+                <small>Categoría: {{ art.category }}</small>
+                <div [innerHTML]="art.content"></div>
+            </div>
+        </div>
+        <div *ngIf="articles.length === 0" class="no-results">
+            No hay artículos creados todavía.
+        </div>
+    </div>
+</div>
