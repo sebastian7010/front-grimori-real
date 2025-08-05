@@ -18,7 +18,7 @@
 
     <!-- Cards dinámicas -->
     <div class="articles-list__grid">
-        <div class="article-card" *ngFor="let art of filteredArticles">
+        <div class="article-card" *ngFor="let art of filteredArticles" (click)="openArticle(art)" tabindex="0">
             <img [src]="art.imageUrl" alt="{{ art.title }}" />
             <div class="article-card__body">
                 <h2>{{ art.title }}</h2>
@@ -27,6 +27,19 @@
         </div>
         <div *ngIf="filteredArticles.length === 0" class="no-results">
             No se encontraron artículos.
+        </div>
+    </div>
+
+    <!-- Modal ampliado del artículo -->
+    <div class="article-modal" *ngIf="selectedArticle" (click)="closeArticle()" role="dialog" aria-modal="true">
+        <div class="article-modal__content" (click)="$event.stopPropagation()" tabindex="0">
+            <button class="close-btn" (click)="closeArticle()">✕</button>
+            <h2>{{ selectedArticle.title }}</h2>
+            <div class="images-container">
+                <img *ngIf="selectedArticle.imageUrl" [src]="selectedArticle.imageUrl" alt="{{ selectedArticle.title }}" />
+                <!-- Si hay más imágenes, pon aquí un ngFor -->
+            </div>
+            <div class="article-text" [innerHTML]="selectedArticle.content"></div>
         </div>
     </div>
 </div>

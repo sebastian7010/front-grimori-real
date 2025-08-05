@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ArticleService } from '../../services/article.service';
-import { Article } from '../../models/article.model'; // <-- Importa el modelo aquí
+import { Article } from '../../models/article.model';
 
 @Component({
   selector: 'app-articles-list',
@@ -21,6 +21,9 @@ export class ArticlesListComponent implements OnInit {
 
   // Variables para el menú desplegable de categorías
   showCategoriesDropdown = false;
+
+  // Variables para controlar la vista ampliada del artículo
+  selectedArticle: Article | null = null;
 
   constructor(private articleService: ArticleService) {}
 
@@ -57,5 +60,15 @@ export class ArticlesListComponent implements OnInit {
 
   toggleCategories() {
     this.showCategoriesDropdown = !this.showCategoriesDropdown;
+  }
+
+  // Método para abrir la vista ampliada del artículo
+  openArticle(article: Article) {
+    this.selectedArticle = article;
+  }
+
+  // Método para cerrar la vista ampliada del artículo
+  closeArticle() {
+    this.selectedArticle = null;
   }
 }
